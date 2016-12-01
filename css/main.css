@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'Nexa';
+    src: url('../fonts/Nexa%20Light.otf');
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('../fonts/Nexa%20Bold.otf');
+    font-weight: bold;
+}
+
+* {
+    font-family: 'Nexa';
+    color: #606060;
+}
+
+a {
+    color: #00d66c;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2800a0;
+}
+/* ===================
+Header
+
+bronnen:
+http://stackoverflow.com/questions/32551291/in-css-flexbox-why-are-there-no-justify-items-and-justify-self-properties/33856609#33856609
+http://jsfiddle.net/mz1ft6jx/8/
+=================== */
+
+
+header {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+
+header a#logo{
+    margin-left: 1rem;
+    /*logo drukt links en search afbeelding naar de rectherkant*/
+    margin-right: auto;
+}
+
+header a#logo img{
+    max-width: 12em;
+}
+
+header h1{
+    font-family: 'Nexa';
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #00d66c;
+    /*h1 moet in het midden, dus absolute. telt nu niet meer mee als flex item*/
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+header a{
+    margin-right: 1rem;
+}
+
+header a span {
+    font-family: 'Nexa';
+    font-size: 1em;
+    color: #00d66c;
+}
+
+header a img.mobile-button {
+    display: none;
+    max-width: 2em;
+    margin-right: 1rem;
+    margin-top: 0.5em;
+}
+
+header img#search{
+    max-width: 2em;
+    margin-right: 1rem;
+    margin-top: 0.5em;
+}
+
+/* ===================
+Header
+<70em ~= 1120px
+=================== */
+
+@media (max-width: 70em) {
+    header a span {
+        display: none;
+    }
+
+    header a img.mobile-button {
+        display: block;
+    }
+}
+
+/* ===================
+Nav bar
+=================== */
+
+nav {
+    display: flex;
+}
+
+nav a {
+    font-family: 'Nexa';
+    font-size: 1.5em;
+    text-align: center;
+    /* breedte = 100%/6 */
+    width: 16.66%;
+
+    background-color: #f7f7f7;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+
+}
+
+
+/* ===================
+Main
+
+bronnen:
+http://stackoverflow.com/questions/29503227/how-to-make-flexbox-items-the-same-size
+http://stackoverflow.com/questions/16670931/hide-scroll-bar-but-still-being-able-to-scroll
+=================== */
+
+main {
+    display: flex;
+    padding: 0 5rem;
+}
+
+main > article,section {
+    /* elk flex-item in mian pakt zoveel mogelijk ruimte */
+    flex-basis: 100%;
+    margin: 0.5rem;
+    border: 0.5px solid #CCCCCC;
+    border-radius: .75rem;
+}
+
+
+main img{
+    /* pas het formaat van de afbeelding aan aan breedte van flex item eromheen */
+    width: 100%;
+}
+
+
+
+h2{
+    font-weight: bold;
+    font-size: 1.8em;
+    color: #2800a0;
+    text-align: center;
+    margin: 0.5em;
+}
+
+footer{
+    font-size: 0.7em;
+    text-align: center;
+    margin: 0.8em;
+}
+
+article p{
+    font-size: 1em;
+    line-height: 1.2em;
+    padding: 1em;
+}
+
+section h3{
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #2800a0;
+    text-align: center;
+    margin: 0.5em;
+}
+
+section h4{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #00d66c;
+    text-align: center;
+    margin: 0.5em;
+}
+
+article div.scroll-container{
+    height: 32em;
+    overflow-y: scroll;
+}
+
+article div.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* ===================
+Main
+<70em ~= 1120px
+=================== */
+
+@media (max-width: 70em) {
+    main section.favorites {
+        display: none;
+    }
+}
+
+/* ===================
+Aanmeldingspagina
+=================== */
+
+main.login-container {
+    background-image: url("../images/achtergrond_inlog.jpg");
+    overflow: hidden;
+    background-color: #f3e5d8;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30em;
+    justify-content: center;
+}
+
+section.login {
+    flex-basis: 20em;
+    background-color: rgba(255, 255, 255, .91);
+}
+section.login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+section.login fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+section.login fieldset * {
+   margin: 0.5rem 10%;
+   width: 80%;
+}
+
+
+section.login form #button{
+    max-width: 6em;
+    margin: 0.8rem auto;
+}
+
