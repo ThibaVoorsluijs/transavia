@@ -40,7 +40,7 @@ header {
 
 header a#logo{
     margin-left: 1rem;
-    /*logo drukt links en search afbeelding naar de rectherkant*/
+    /*logo staat links en drukt search afbeelding naar de rectherkant*/
     margin-right: auto;
 }
 
@@ -53,7 +53,7 @@ header h1{
     font-weight: bold;
     font-size: 2.5em;
     color: #00d66c;
-    /*h1 moet in het midden, dus absolute. telt nu niet meer mee als flex item*/
+    /*h1 moet in het midden, dus absolute. Daarmee haal je h1 uit de flex flow*/
     position: absolute;
     left: 50%;
     transform: translate(-50%,0);
@@ -63,6 +63,7 @@ header a{
     margin-right: 1rem;
 }
 
+/* span toegevoegd om de tekst te kunnen veranderen naar een icon */
 header a span {
     font-family: 'Nexa';
     font-size: 1em;
@@ -140,13 +141,10 @@ main > article,section {
     border-radius: .75rem;
 }
 
-
 main img{
     /* pas het formaat van de afbeelding aan aan breedte van flex item eromheen */
     width: 100%;
 }
-
-
 
 h2{
     font-weight: bold;
@@ -211,7 +209,6 @@ Aanmeldingspagina
 main.login-container {
     background-image: url("../images/achtergrond_inlog.jpg");
     overflow: hidden;
-    background-color: #f3e5d8;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
