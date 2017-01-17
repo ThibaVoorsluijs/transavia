@@ -1,0 +1,89 @@
+/* ===================
+Aanmeldingspagina
+Bronnen:
+Siebe Domeijer
+
+=================== */
+
+
+/* ===================
+Aanmeldings section
+=================== */
+
+
+main > section:first-of-type{
+    background-image: url("../images/achtergrond_aanmeldingpagina_02.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* container met transparante achtergrond */
+main > section:first-of-type > form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 20em;
+    background-color: rgba(255, 255, 255, .91);
+    border-radius: 10px;
+    overflow:hidden;
+    height: 20em;
+    font-weight: bold;
+    padding: 0 1em;
+}
+
+/* container voor h2 met witte achtergrond */
+main > section:first-of-type  > form > h2 {
+    background-color: rgba(255, 255, 255, 1);
+    width: 100%;
+}
+
+
+main > section:first-of-type  > form > fieldset{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0.5rem 10%;
+    width: 100%;
+}
+
+main > section:first-of-type  > form #button{
+    max-width: 6em;
+    margin: 0.8rem auto;
+}
+
+main > section:first-of-type  > form > fieldset > legend{
+    font-weight: normal;
+    margin-top: 0.8rem;
+}
+
+main > section:first-of-type  > form > fieldset > input {
+    height: 2.5em;
+    flex-basis: 100%;
+    display:inline-block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgb(96,96,96);
+    padding-left: 1em;
+    width: 100%;
+
+}
+
+/* bron: http://stackoverflow.com/questions/935559/remove-safari-chrome-textinput-textarea-glow */
+main > section:first-of-type  > form > fieldset > input:focus{
+    outline: none;
+    border: 1px solid rgb(40, 0, 160);
+}
+
+
+main > section:first-of-type  > form > fieldset > label{
+    margin: 0.5rem 0;
+    color: black;
+    font-size: 0.9em;
+
+}
+

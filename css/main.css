@@ -1,13 +1,27 @@
-@font-face {
+/* ===================
+Bronnen:
+Siebe Domeijer
+
+=================== */
+
+@font-face{
     font-family: 'Nexa';
     src: url('../fonts/Nexa%20Light.otf');
 }
 
-@font-face {
+@font-face{
     font-family: 'Nexa';
     src: url('../fonts/Nexa%20Bold.otf');
     font-weight: bold;
 }
+
+
+
+/* ===================
+
+Algemeen,
+links, headers, fonts
+=================== */
 
 * {
     font-family: 'Nexa';
@@ -19,9 +33,63 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover{
     color: #2800a0;
 }
+
+h1{
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #00d66c;
+    text-align: center;
+    padding: 0.3em;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 1.8em;
+    color: #00d66c;
+    /* color: #2800a0; */
+    text-align: center;
+    padding: 0.5em;
+}
+
+h3{
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #00d66c;
+    /* color: #2800a0; */
+    text-align: center;
+    padding: 0.5em;
+}
+
+h4{
+    font-weight: bold;
+    font-size: 1.6em;
+    color: #2800a0;
+    text-align: center;
+    padding: 0.5em;
+}
+
+
+h5{
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2800a0;
+    padding: 0.5em;
+    font-family: 'Nexa';
+}
+
+
+ p{
+    font-size: 0.95em;
+    line-height: 1.7em;
+    padding: 1em;
+    /*http://stackoverflow.com/questions/17868503/on-css-if-text-line-is-break-show-dots */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 /* ===================
 Header
 
@@ -31,217 +99,209 @@ http://jsfiddle.net/mz1ft6jx/8/
 =================== */
 
 
-header {
+
+nav{
     display: flex;
     align-items: center;
-    margin: 1rem 0;
+    margin: 0.4rem 0;
 }
 
 
-header a#logo{
+nav>img{
+    /*h1 moet in het midden, daarom absolute. Daarmee haal je h1 uit de flex flow*/
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 25vw;
+    /*     http://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css */
+    content:url("../images/LogoSite.png");
+}
+
+
+nav>a{
+    margin-right: 1rem;
+}
+
+/* span toegevoegd om de tekst te kunnen veranderen naar een icon */
+nav>a span{
+    font-family: 'Nexa';
+    font-size: 1em;
+    color: #00d66c;
+}
+
+nav>a img{
+    display: none;
+    max-width: 2em;
+    margin-right: 1rem;
+    max-height: 2em;
+}
+
+nav>a#logo{
     margin-left: 1rem;
     /*logo staat links en drukt search afbeelding naar de rectherkant*/
     margin-right: auto;
 }
 
-header a#logo img{
+nav>a#logo img{
+    display: block;
     max-width: 12em;
+    margin: 0;
+    content:url("../images/transavia_logo.png");
 }
 
-header h1{
-    font-family: 'Nexa';
-    font-weight: bold;
-    font-size: 2.5em;
-    color: #00d66c;
-    /*h1 moet in het midden, dus absolute. Daarmee haal je h1 uit de flex flow*/
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,0);
-}
-
-header a{
-    margin-right: 1rem;
-}
-
-/* span toegevoegd om de tekst te kunnen veranderen naar een icon */
-header a span {
-    font-family: 'Nexa';
-    font-size: 1em;
-    color: #00d66c;
-}
-
-header a img.mobile-button {
-    display: none;
-    max-width: 2em;
-    margin-right: 1rem;
-    margin-top: 0.5em;
-}
-
-header img#search{
-    max-width: 2em;
-    margin-right: 1rem;
-    margin-top: 0.5em;
-}
 
 /* ===================
-Header
+nav
 <70em ~= 1120px
+tablet en kleine schermen
 =================== */
 
-@media (max-width: 70em) {
-    header a span {
+@media (max-width: 70em){
+    nav a span {
         display: none;
     }
 
-    header a img.mobile-button {
+    nav a img {
         display: block;
     }
-}
-
-/* ===================
-Nav bar
-=================== */
-
-nav {
-    display: flex;
-}
-
-nav a {
-    font-family: 'Nexa';
-    font-size: 1.5em;
-    text-align: center;
-    /* breedte = 100%/6 */
-    width: 16.66%;
-
-    background-color: #f7f7f7;
-    padding: 0.5rem 0;
-    margin: 0.5rem 0;
 
 }
 
 
 /* ===================
-Main
-
-bronnen:
-http://stackoverflow.com/questions/29503227/how-to-make-flexbox-items-the-same-size
-http://stackoverflow.com/questions/16670931/hide-scroll-bar-but-still-being-able-to-scroll
+nav
+<70em ~= 1120px
+tablet en kleine schermen
 =================== */
 
-main {
+@media (max-width: 50em){
+    /*     http://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css */
+
+    nav>img{
+        content:url("../images/LogoSite_klein.png");
+        max-width: 7em;
+        /* titel image naar links */
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-right: auto;
+    }
+
+    nav>a#logo {
+        /* titel image naar links */
+        margin-right: 0.5rem;
+    }
+
+    nav>a#logo img{
+       content:url("../images/transavia_logo_klein.png");
+    }
+
+
+
+}
+
+/* ===================
+
+section 'kunnen wij je helpen'
+
+=================== */
+
+main > form {
     display: flex;
-    padding: 0 5rem;
+    justify-content: center;
+    background-color:rgb(247, 247, 247);
+
+
 }
 
-main > article,section {
-    /* elk flex-item in mian pakt zoveel mogelijk ruimte */
-    flex-basis: 100%;
-    margin: 0.5rem;
-    border: 0.5px solid #CCCCCC;
-    border-radius: .75rem;
+main > form > fieldset {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-main img{
-    /* pas het formaat van de afbeelding aan aan breedte van flex item eromheen */
-    width: 100%;
+main > form > fieldset > legend > h4{
+    margin: 1.2em;
 }
 
-h2{
-    font-weight: bold;
-    font-size: 1.8em;
-    color: #2800a0;
-    text-align: center;
-    margin: 0.5em;
+/* fieldset werkt niet goed met flex, daarom div eromheen
+http://stackoverflow.com/questions/27369754/css-flexbox-in-a-form */
+main > form > fieldset > div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
 }
+
+main > form input {
+    height: 2.5em;
+    flex-basis: 40%;
+    min-width: 20em;
+    display:inline-block;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid rgb(96,96,96);
+    padding-left: 1em;
+}
+
+/* bron: http://stackoverflow.com/questions/935559/remove-safari-chrome-textinput-textarea-glow */
+main > form input:focus{
+    outline: none;
+    border: 1px solid rgb(40, 0, 160);
+}
+
+main > form button{
+    background: url(../images/button.png) center no-repeat;
+    width: 5em;
+    height: 2.5em;
+    border: none;
+    background-size: cover;
+    padding: 0;
+    display:inline-block;
+}
+
+/* ===================
+
+Footer
+
+=================== */
 
 footer{
-    font-size: 0.7em;
-    text-align: center;
-    margin: 0.8em;
-}
-
-article p{
-    font-size: 1em;
-    line-height: 1.2em;
-    padding: 1em;
-}
-
-section h3{
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #2800a0;
-    text-align: center;
-    margin: 0.5em;
-}
-
-section h4{
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #00d66c;
-    text-align: center;
-    margin: 0.5em;
-}
-
-article div.scroll-container{
-    height: 32em;
-    overflow-y: scroll;
-}
-
-article div.scroll-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* ===================
-Main
-<70em ~= 1120px
-=================== */
-
-@media (max-width: 70em) {
-    main section.favorites {
-        display: none;
-    }
-}
-
-/* ===================
-Aanmeldingspagina
-=================== */
-
-main.login-container {
-    background-image: url("../images/achtergrond_inlog.jpg");
-    overflow: hidden;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 30em;
-    justify-content: center;
-}
-
-section.login {
-    flex-basis: 20em;
-    background-color: rgba(255, 255, 255, .91);
-}
-section.login form {
     display: flex;
-    flex-direction: column;
+    height: 4em;
     align-items: center;
-    font-weight: bold;
+    justify-content: space-around;
 }
 
-section.login fieldset {
+footer > ul > li > a {
+    font-family: 'Nexa';
+    color: rgb(96,96,96);
+    text-decoration: none;
+    font-size: 0.7em;
+}
+
+footer > ul > li > a:hover{
+    color: rgb(255, 50, 104);
+}
+
+
+footer > ul{
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 2rem;
+    align-items: center;
 }
 
-section.login fieldset * {
-   margin: 0.5rem 10%;
-   width: 80%;
+footer > ul > li{
+    margin-left: 0.8em;
 }
 
-
-section.login form #button{
-    max-width: 6em;
-    margin: 0.8rem auto;
+footer > img{
+    height: 1.5em;
 }
 
+/*terug naar boven */
+footer > a {
+    display: none;
+    position: fixed;
+    bottom: -0.2rem;
+    right: 2vw;
+}

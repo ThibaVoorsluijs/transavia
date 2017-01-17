@@ -7,43 +7,76 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/aanmeldingspagina.css">
     </head>
 
     <body>
-        <header>
+        <nav>
             <a id="logo" href="index.html">
-                <img src="images/transavia_logo.png" alt="logo">
+                <img src="images/transavia_logo.png" alt="logo_transavia">
             </a>
-            <h1>Verhalen voor onderweg</h1>
+            <img src="images/LogoSite.png" alt="logo_verhalen">
             <a href="aanmeldingspagina.html">
                 <span>Online inloggen</span>
-                <img class="mobile-button" src="images/login.png" alt="login">
+                <img src="images/login_2.0.png" alt="login">
             </a>
             <a href="">
-                <span>Favorieten</span>
-                <img  class="mobile-button" src="images/fav.png" alt="favorieten">
+                <img src="images/favo_2.0.png" alt="favorieten">
             </a>
-            <img id="search" src="images/search.png" alt="search">
-        </header>
+             <a href="">
+                <span>Downloads</span>
+                <img src="images/downlaod_2.0.png" alt="downloads">
+            </a>
+        </nav>
 
-        <main class="login-container">
+        <main>
 
-          <section class="login">
-              <h2>Mijn verhalen</h2>
-              <form>
-                  <legend>Inloggen voor mijn favorieten verhalen</legend>
+            <section>
+               <!-- transparante inlog box -->
+
+                <form>
+                  <h2>Mijn verhalen</h2>
+
                   <fieldset>
-                    <label for="naam">Naam:</label>
-                    <input name="naam" type="text">
+                    <legend>Inloggen voor mijn favorieten verhalen</legend>
+                    <label for="naam">Gebruikernaam</label>
+                    <input
+                        id="naam"
+                        type="text"
+                        placeholder="b.v. jjanssen">
                     <label for="wachtwoord">Wachtwoord</label>
-                    <input name="wachtwoord" type="text">
+                    <input
+                        id="wachtwoord"
+                        type="text">
                   </fieldset>
-                  <img id="button" src="images/inlog_button.png">
+                  <img id="button" src="images/inlog_button.png" alt="inloggen">
                 </form>
             </section>
+
+            <form>
+
+
+                <fieldset>
+                    <legend><h4>Kunnen wij je helpen?</h4></legend>
+                   <!-- http://stackoverflow.com/questions/27369754/css-flexbox-in-a-form -->
+                    <div>
+                        <label for="zoeken"></label>
+                        <input
+                            id="zoeken"
+                            type="text"
+                            placeholder="Typ je hier je zoekterm">
+                        <button></button>
+                    </div>
+                </fieldset>
+            </form>
         </main>
-
-        <footer></footer>
-
+        <footer>
+             <ul>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Disclaimer</a></li>
+                <li><a href="">Cookiebeleid</a></li>
+            </ul>
+            <img src="images/transavia_logo.png" alt="transavia_logo">
+        </footer>
     </body>
 </html>

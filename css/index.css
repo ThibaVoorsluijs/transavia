@@ -1,0 +1,297 @@
+/* ===================
+Index, main pagina
+
+bronnen:
+Siebe Domeijer
+http://stackoverflow.com/questions/29503227/how-to-make-flexbox-items-the-same-size
+http://stackoverflow.com/questions/16670931/hide-scroll-bar-but-still-being-able-to-scroll
+=================== */
+
+
+main > section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* alles in de twee hoofd-sections (artikelen en favorites-section) */
+main > section > article,
+main > section > aside{
+    margin: 0.5rem;
+    max-height: 21em;
+    height: 100%;
+    min-width: 15em;
+    /*text afkappen
+    https://css-tricks.com/flexbox-truncated-text/ */
+    overflow: hidden;
+    border: 0.5px solid #CCCCCC;
+    border-radius: .75rem;
+    /* elk flex-item in main pakt zoveel mogelijk ruimte */
+    display: flex;
+    flex-basis: 30%;
+    flex-flow: column;
+    justify-content: center;
+    /* centreer items (lees meer button) en behoud ratio */
+    align-items: center;
+}
+
+article > footer{
+    font-size: 0.7em;
+    text-align: center;
+    margin: 0.8em;
+}
+
+/* lees meer tab */
+article > a > img{
+    padding: .8rem;
+}
+
+/* ===================
+Opties
+=================== */
+
+body > section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+body > section > * {
+    width: 100%;
+}
+
+
+body > section  > button{
+    /* alleen zichtbaar voor mobiel */
+    display: none;
+    font-family: 'Nexa';
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    border: none;
+    font-size: 1.3em;
+    color: #00d66c;
+    /* color: #2800a0; */
+    text-align: center;
+    padding: 0.5em;
+    flex-basis: 50%;
+}
+
+body > section > * > ul{
+    display: flex;
+}
+
+body > section > * > ul li{
+    /* breedte = 100%/6 = 16.67% */
+    width: 16.66%;
+    background-color: #f7f7f7;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+body > section > * >ul a{
+    font-family: 'Nexa';
+    font-size: 1.5em;
+}
+
+/* ===================
+Eerste section (Hoofd artikel)
+=================== */
+
+/* hoofd section met achtergrond en 1 artikel */
+main > section:first-child {
+    background: url(../images/Achtergrond.jpg) center;
+    background-size: cover;
+    /* "vaste" hoogte, artikel in het midden */
+    height: 80vh;
+    /* centreer artikel */
+    align-items: center;
+}
+
+
+/* artikel in hoofdsection */
+main > section:first-child > article {
+    background-color: rgba(255,255,255,0.85);
+    flex-basis: 33%;
+}
+
+
+/* artikel in hoofdsection, witte achtergrond header */
+main > section:first-child > article > h1{
+    background-color: white;
+    width:100%;
+}
+/* artikel in hoofdsection, zwarte tekst */
+main > section:first-child > article > p{
+    color: black;
+}
+
+/* ===================
+Tweede section  (filter, artikelen en favorieten)
+                (section, articles en section)
+=================== */
+
+/* onderste section met artikelen en favorieten */
+main > section:nth-child(2) {
+    margin: 2em 5rem;
+}
+
+/* alle witte iconen van het onderste section */
+main > section:nth-child(2) > * > img:first-child {
+    max-height: 3em;
+    padding: 1rem 100%;
+}
+
+article > img#icoon-zombie{
+    background: rgb(40, 0, 160);
+}
+
+article > img#icoon-kinderboek{
+    background: rgb(0, 214, 108);
+}
+
+section > aside:last-of-type > img#icoon-favorieten{
+    background: rgb(255, 50, 104);
+}
+
+/* favoriten section, kleiner */
+main > section:nth-child(2) > aside:last-of-type {
+     flex-basis: 5%;
+}
+
+/* favorieten lijst container, extra padding om favorieten section groter te maken */
+main > section:nth-child(2) > aside:last-of-type > ul {
+    width: 100%;
+    padding-bottom: 1em;
+}
+
+/* favorieten lijst items met pijltje als achtergrond */
+main > section:nth-child(2) > aside:last-of-type > ul > li{
+    background: url(../images/pijl.png) right no-repeat;
+    background-size: 4%;
+    font-size: .9em;
+    font-weight: bold;
+    margin: 1rem 3rem;
+}
+
+/* ===================
+    Opties Form
+=================== */
+/* beide forms, boven voor mobiel, in tweede section voor desktop/tablet */
+body > section > form {
+    font-family: 'Nexa';
+    background-color: #f7f7f7;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: column;
+
+    /* opties voor "fixed" desktop/tablet menu, reset voor mobiel */
+    position: fixed;
+    /* alle waardes in (r)em, anders werkt fixed niet goed */
+    top: 13em;
+    left: -19rem;
+    height: 60%; /* 100% Full-height */
+    max-width: 15rem;
+    transition: left 0.7s;
+
+}
+
+body > section > * > ul {
+    width: 100%;
+    padding 1em;
+}
+
+body > section > form > ul > li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+body > section > form > ul > li > input[type="range"] {
+    width: 100%;
+
+}
+
+/* meer opties / minder opties, ook fixed */
+body > section > button#meer-minder-opties {
+    display: block;
+    position: fixed;
+    top: 10em;
+    /* alle waardes in (r)em, anders werkt fixed niet goed */
+    left: 0rem;
+    width: 2.5rem;
+    height: 9.3rem;
+    background: url(../images/meer_opties.png) center no-repeat;
+    background-size: contain;
+    transition: left 0.7s;
+}
+
+
+/* lijsten van categorieen */
+body > section > form > ul {
+    flex-direction: column;
+}
+
+/* ===================
+Index
+< 70em ~= 1120px
+tablet en kleine schermen
+=================== */
+
+@media (max-width: 70em){
+    /* favorites wegklappen */
+    main > section:nth-child(2) > aside:last-of-type {
+        display: none;
+    }
+}
+
+/* ===================
+Index
+< 50em ~= 800px
+tablet en kleine schermen
+=================== */
+
+@media (max-width: 50em){
+
+    /* verberg grote favorieten */
+    main > section:nth-child(2) > aside {
+        display: none;
+    }
+
+    /* verberg meer-minder opties knop */
+    body > section > button#meer-minder-opties {
+        display: none;
+    }
+
+    /* meer opties en favorieten */
+    body > section > form,
+    body > section > section{
+        /* "minimaal" order 3 om te zorgen dat de velden achter de buttons komen te staan */
+        order: 3;
+        /* de containers blijven onzichtbaar tot er geklikt wordt */
+        display: none;
+
+        /* reset "fixed" opties, zodat ze nu in het menu vallen */
+        position: relative;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+    }
+
+    /* buttons */
+    body > section  > button {
+        display: block;
+    }
+
+
+    body > section > * > ul > li{
+        width: 100%;
+    }
+
+
+    /* lijsten van opties/categorieen */
+    body > section > * > ul {
+        flex-direction: column;
+    }
+
+}

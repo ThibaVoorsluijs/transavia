@@ -1,0 +1,20 @@
+
+
+img {
+    width: 100%;
+}
+
+
+@media (max-width: 70em){
+    /*     http://stackoverflow.com/questions/2182716/is-it-possible-to-set-the-equivalent-of-a-src-attribute-of-an-img-tag-in-css */
+    img{
+        content:url("../images/verhalen/hetgebrek_tablet.png");
+    }
+}
+
+
+@media (max-width: 40em){
+    img{
+        content:url("../images/verhalen/hetgebrek_smartphone.png");
+    }
+}
