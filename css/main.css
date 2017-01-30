@@ -129,6 +129,10 @@ nav>a span{
     color: #00d66c;
 }
 
+nav>a span:hover{
+    color: #2800a0;
+}
+
 nav>a img{
     display: none;
     max-width: 2em;
@@ -299,9 +303,21 @@ footer > img{
 }
 
 /*terug naar boven */
-footer > a {
-    display: none;
+footer > button {
+    display: flex;
     position: fixed;
-    bottom: -0.2rem;
+    bottom: -4rem;
     right: 2vw;
+    border: none;
+    padding: 0;
+    transition: bottom 0.5s;
 }
+
+/* ===================
+  Javascript Classes
+=================== */
+
+footer > button.shift-up {
+    bottom: -0.2rem;
+}
+

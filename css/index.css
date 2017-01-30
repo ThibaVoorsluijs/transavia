@@ -4,7 +4,6 @@ Index, main pagina
 bronnen:
 Siebe Domeijer
 http://stackoverflow.com/questions/29503227/how-to-make-flexbox-items-the-same-size
-http://stackoverflow.com/questions/16670931/hide-scroll-bar-but-still-being-able-to-scroll
 =================== */
 
 
@@ -80,17 +79,21 @@ body > section > * > ul{
     display: flex;
 }
 
-body > section > * > ul li{
+body > section > * > ul > li{
     /* breedte = 100%/6 = 16.67% */
     width: 16.66%;
     background-color: #f7f7f7;
     padding: 0.5rem 0;
     text-align: center;
-}
-
-body > section > * >ul a{
     font-family: 'Nexa';
     font-size: 1.5em;
+    color: #00d66c;
+    /*http://stackoverflow.com/questions/3087975/how-can-i-make-the-cursor-a-hand-when-a-user-hovers-over-a-list-item*/
+    cursor: pointer;
+}
+
+body > section > * > ul > li:hover{
+    color: #2800a0;
 }
 
 /* ===================
@@ -153,7 +156,7 @@ section > aside:last-of-type > img#icoon-favorieten{
     background: rgb(255, 50, 104);
 }
 
-/* favoriten section, kleiner */
+/* favorieten section, kleiner */
 main > section:nth-child(2) > aside:last-of-type {
      flex-basis: 5%;
 }
@@ -176,14 +179,13 @@ main > section:nth-child(2) > aside:last-of-type > ul > li{
 /* ===================
     Opties Form
 =================== */
-/* beide forms, boven voor mobiel, in tweede section voor desktop/tablet */
+/* opties heeft twee vormen: dropdown voor mobiel tab in tweede section voor desktop/tablet */
 body > section > form {
     font-family: 'Nexa';
     background-color: #f7f7f7;
     padding: 0 2em;
     display: flex;
     flex-direction: column;
-
     /* opties voor "fixed" desktop/tablet menu, reset voor mobiel */
     position: fixed;
     /* alle waardes in (r)em, anders werkt fixed niet goed */
@@ -192,7 +194,6 @@ body > section > form {
     height: 60%; /* 100% Full-height */
     max-width: 15rem;
     transition: left 0.7s;
-
 }
 
 body > section > * > ul {
@@ -212,8 +213,8 @@ body > section > form > ul > li > input[type="range"] {
 
 }
 
-/* meer opties / minder opties, ook fixed */
-body > section > button#meer-minder-opties {
+/* meer opties / minder opties, ook fixed (desktop) */
+body > section > button:nth-of-type(2) {
     display: block;
     position: fixed;
     top: 10em;
@@ -258,29 +259,32 @@ tablet en kleine schermen
         display: none;
     }
 
-    /* verberg meer-minder opties knop */
-    body > section > button#meer-minder-opties {
-        display: none;
-    }
-
     /* meer opties en favorieten */
     body > section > form,
     body > section > section{
         /* "minimaal" order 3 om te zorgen dat de velden achter de buttons komen te staan */
         order: 3;
-        /* de containers blijven onzichtbaar tot er geklikt wordt */
-        display: none;
-
+        display: flex;
         /* reset "fixed" opties, zodat ze nu in het menu vallen */
         position: relative;
         top: 0;
         left: 0;
+        /* de containers worden zichtbaar door de js class "visible-height" tot er geklikt wordt */
         max-width: 100%;
+        max-height: 0;
+        height: 100%;
+        overflow: hidden;
+        transition: max-height 1s;
     }
 
     /* buttons */
     body > section  > button {
         display: block;
+    }
+
+    /* verberg meer-minder opties knop */
+    body > section > button:nth-of-type(2) {
+        display: none;
     }
 
 
@@ -294,4 +298,26 @@ tablet en kleine schermen
         flex-direction: column;
     }
 
+}
+
+/* ===================
+JavaScript Classes
+=================== */
+
+/* body section bevat opties en categorieen dropdown (mobiel) */
+body > section > .visible-height {
+    /* max-height in em anders werkt de transtition niet */
+    max-height: 80em;
+}
+
+/* dit is de uitschuif tab voor desktop & tablet, opties form */
+body > section > form.shift-right {
+    left: 0rem;
+}
+
+/* button voor tab, sowieso niet zichtbaar op mobiel */
+body > section > button.shift-right {
+    left: 19rem;
+    background: url(../images/minder_opties.png) center no-repeat;
+    background-size: contain;
 }

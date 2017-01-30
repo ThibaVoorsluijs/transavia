@@ -8,9 +8,7 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/index.css">
-        <script src="js/index.js"></script>
     </head>
-
     <body>
         <nav>
             <a id="logo" href="index.html">
@@ -31,8 +29,9 @@
         </nav>
 
         <section><!-- categorieen & opties mobiel-->
-                <button onclick="optiesButtonClick()">Meer opties</button>
-                <form id="opties-mobiel">
+
+                <button>Meer opties</button>
+                <form>
                    <ul>
                         <li><h5>Lengte</h5></li>
                         <li>
@@ -64,18 +63,17 @@
                         </li>
                     </ul>
                 </form>
-                <button id="meer-minder-opties" onclick="meerMinderOptiesButtonClick()"></button>
+                <button><!--"uitschuif"-knop meer opties--></button>
 
-                <button onclick ="categorieButtonClick()">Categorieën</button>
-
-                <section id="categorie-section">
+                <button>Categorieën</button>
+                <section>
                    <ul>
-                        <li><a href="">Alles</a></li>
-                        <li><a href="">Drama</a></li>
-                        <li><a href="">Kritisch</a></li>
-                        <li><a href="">Poezië</a></li>
-                        <li><a href="">Romantiek</a></li>
-                        <li><a href="">Sport</a></li>
+                        <li>Alles</li>
+                        <li>Drama</li>
+                        <li>Kritisch</li>
+                        <li>Poezië</li>
+                        <li>Romantiek</li>
+                        <li>Sport</li>
                    </ul>
                 </section>
         </section>
@@ -146,7 +144,10 @@
                 <li><a href="">Cookiebeleid</a></li>
             </ul>
             <img src="images/transavia_logo.png" alt="transavia_logo">
-            <a href="#" id="terug-naar-boven"><img src="images/terug_naar_boven.jpg" alt="terug naar boven"></a>
+            <button><img src="images/terug_naar_boven.jpg" alt="terug naar boven"></button>
         </footer>
+        <!-- JavaScript staat hier omdat alle elementen geladen moeten zijn voor dat het script start -->
+        <script src="js/content.js"></script>
+        <script src="js/index.js"></script>
     </body>
 </html>
